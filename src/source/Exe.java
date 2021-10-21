@@ -9,7 +9,7 @@ public class Exe {
 		
 		new Exe().configLKF("Nimbus");
 		Materia materia = new Materia();
-		//Entrada entrada = new Entrada();
+		//Entrada entrada = new Entrada(); asdfa
 		
 	}
 	
