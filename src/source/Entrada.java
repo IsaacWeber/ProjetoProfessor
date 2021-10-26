@@ -26,13 +26,12 @@ public class Entrada extends JFrame {
 	private JComboBox<String> professorCombo;
 	private JButton professorEntrar;
 	private JButton professorCadastrar;
-	private Font fonteGeral;
-	private Color bgCor;
 	private JPanel painelGrafico;
 	private JLabel graficoLabel;
 	
 	public Entrada() {
 		configLKF("Nimbus");
+		this.getContentPane().setBackground(DesignApp.corFundo);
 		
 		this.setTitle("Gerenciador Escolar");
 		this.setSize(800, 600);
@@ -41,9 +40,6 @@ public class Entrada extends JFrame {
 		this.setExtendedState(MAXIMIZED_BOTH);
 		//this.getContentPane().setBackground(Color.BLUE);
 		configPaineis();
-		
-		//this.getContentPane().setBackground(Color.PINK);
-		
 		this.setVisible(true);
 	}
 	
@@ -61,9 +57,9 @@ public class Entrada extends JFrame {
 		bc2 = Box.createHorizontalBox();
 		bc3 = Box.createHorizontalBox();
 		
-		fonteGeral = new Font(Font.SANS_SERIF, Font.PLAIN, 25); 
+		
 		professorLabel = new JLabel("Professor(a):");
-		professorLabel.setFont(fonteGeral);
+		professorLabel.setFont(DesignApp.fonteGrande);
 		bc1.add(Box.createHorizontalStrut(50));
 		bc1.add(professorLabel);
 		bc1.add(Box.createHorizontalStrut(135));
@@ -71,25 +67,24 @@ public class Entrada extends JFrame {
 		
 		String[] professores = {"Lidinete Guedes", "Oswaldo"};
 		professorCombo = new JComboBox<String>(professores);
-		professorCombo.setFont(fonteGeral);
+		professorCombo.setFont(DesignApp.fonteGrande);
 		professorEntrar = new JButton("Entrar");
-		professorEntrar.setFont(fonteGeral);
+		professorEntrar.setFont(DesignApp.fonteGrande);
 		JPanel bc2Panel = new JPanel(
 			new FlowLayout(FlowLayout.LEFT, 50, 0));
 		
 		bc2Panel.add(professorCombo);
 		bc2Panel.add(professorEntrar);
 		
-		bgCor = new Color(237, 237, 237);
-		bc2Panel.setBackground(bgCor);
+		bc2Panel.setBackground(this.getContentPane().getBackground());
 		
 		bc2.add(bc2Panel);
 		
 		professorCadastrar = new JButton("Cadastrar");
-		professorCadastrar.setFont(fonteGeral);
+		professorCadastrar.setFont(DesignApp.fonteGrande);
 		bc3Panel = new JPanel(
 			new FlowLayout(FlowLayout.RIGHT));
-		bc3Panel.setBackground(bgCor);
+		bc3Panel.setBackground(this.getContentPane().getBackground());
 		bc3Panel.add(professorCadastrar);
 		bc3.add(bc3Panel);	
 		
@@ -156,7 +151,7 @@ public class Entrada extends JFrame {
 				this.getHeight()/4 + 50, 714, 370);
 		
 		graficoLabel = new JLabel("Situação Alunos");
-		graficoLabel.setFont(fonteGeral);
+		graficoLabel.setFont(DesignApp.fonteGrande);
 		graficoLabel.setLayout(null);
 		graficoLabel.setBounds(this.getWidth()/2 + 100 + 250,
 				this.getHeight()/4 -150, 185, 370);
