@@ -8,9 +8,10 @@ public class Exe {
 	public static void main(String[] args) {
 		
 		new DesignApp("Nimbus");
+		new Aluno();
 //		new Turma();
 //		Materia materia = new Materia();
-		Entrada entrada = new Entrada(); 
+//		Entrada entrada = new Entrada(); 
 		
 	}
 	
