@@ -1,19 +1,29 @@
 package source;
 
-import javax.swing.UIManager;
-import javax.swing.UIManager.LookAndFeelInfo;
+import java.util.List;
 
 public class Exe {
 	
 	public static void main(String[] args) {
 		
 		new DesignApp("Nimbus");
-		new Aluno();
-//		new Turma();
-//		Materia materia = new Materia();
-//		Entrada entrada = new Entrada(); 
+//		new AlunoTela();
+//		new TurmaTela();
+//		new Materia();
+		new Entrada(); 
+//		DAO dao = new DAO();
+//		ProfessorDao pDao = new ProfessorDao();
+//		List<Professor> profs = pDao.getAll();
+//		for(int i = 0; i < profs.size() ; i++) {
+//			System.out.printf("id: %d\nNome: %s\nSobrenome: %s\n",
+//					profs.get(i).getId(), profs.get(i).getNome(),
+//					profs.get(i).getSobreNome());
+//		}
+//		System.out.println(new Validador().nomeValido("  arr oz  "));
 		
 	}
+	
+	
 	
 	
 

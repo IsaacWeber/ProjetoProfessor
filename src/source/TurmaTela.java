@@ -11,7 +11,7 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumnModel;
 
-public class Aluno extends JFrame {
+public class TurmaTela extends JFrame {
 	
 	private JLabel tituloLabel;
 	private Box boxGeral, 
@@ -20,14 +20,14 @@ public class Aluno extends JFrame {
 		boxTblTitulo,
 		boxBotao;
 	private JLabel tabelaTitulo;
-	private JTable tabelaAluno;
+	private JTable tabelaTurma;
 	private DefaultTableModel tabelaModelo;
 	private JScrollPane tabelaRolagem;
-	private JButton cadastrarBtn, salvarBtn, acessarBtn, encerrarBtn;
+	private JButton salvarBtn, acessarBtn;
 	
-	public Aluno() {
+	public TurmaTela() {
 		this.getContentPane().setBackground(DesignApp.corFundo);
-		this.setTitle("Gerenciador Escolar - Alunos");
+		this.setTitle("Gerenciador Escolar - Turmas");
 		this.setSize(800, 600);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.setLocationRelativeTo(null);
@@ -37,7 +37,6 @@ public class Aluno extends JFrame {
 		
 		this.setVisible(true);
 	}
-	
 	
 	private void configPaineis() {
 		boxGeral = Box.createVerticalBox();	
@@ -50,63 +49,57 @@ public class Aluno extends JFrame {
 		
 		boxConteudo = Box.createVerticalBox();
 		boxTblTitulo = Box.createHorizontalBox();
-		tabelaTitulo = new JLabel("Alunos");
+		tabelaTitulo = new JLabel("Turmas");
 		tabelaTitulo.setFont(new Font(Font.SANS_SERIF, Font.PLAIN, 30));
-		tabelaModelo = new DefaultTableModel(new Object[] {"N°", "Matrícula", "Aluno", "Faltas", "Situação"}, 2);
-		tabelaAluno = new JTable(tabelaModelo);
-		tabelaAluno.getTableHeader().setFont(DesignApp.fonteMedia);
-		tabelaAluno.setFont(DesignApp.fonteMedia);
-		String[][] alunos = {
-				{"0001", "Isaac Weber", "10", "2.7", "Em Andamento"},
-				{"0002", "Nícolas Kaleb", "11", "5.8", "Em Andamento"}};
+		tabelaModelo = new DefaultTableModel(new Object[] {"N°", "Turma", "Alunos"}, 5);
+		tabelaTurma = new JTable(tabelaModelo);
+		tabelaTurma.getTableHeader().setFont(DesignApp.fonteMedia);
+		tabelaTurma.setFont(DesignApp.fonteMedia);
+		String[] names = {"A", "B", "C", "D", "E"};
 		
-		for(int i = 0; i < alunos.length; i++) {
-			tabelaAluno.setValueAt(i + 1, i, 0); //número do aluno
-			tabelaAluno.setValueAt(alunos[i][0], i, 1); //matrícula
-			tabelaAluno.setValueAt(alunos[i][1], i, 2);
-			tabelaAluno.setValueAt(alunos[i][2], i, 3);
-			tabelaAluno.setValueAt(alunos[i][3], i, 4);
-
+		for(int i = 0; i < names.length; ++i) {
+			tabelaTurma.setValueAt(i, i, 0);
+			tabelaTurma.setValueAt(names[i], i, 1);
+			tabelaTurma.setValueAt(0, i, 2);
 		}
-		tabelaAluno.setRowHeight(30); 
-		TableColumnModel tcm = tabelaAluno.getColumnModel();
+		tabelaTurma.setRowHeight(30); 
+		TableColumnModel tcm = tabelaTurma.getColumnModel();
 		tcm.getColumn(1).setPreferredWidth(10);
 		
-		tabelaRolagem = new JScrollPane(tabelaAluno);
+		tabelaRolagem = new JScrollPane(tabelaTurma,
+			JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,
+			JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 		boxConteudo.add(Box.createVerticalStrut(50));
 		boxTblTitulo.add(tabelaTitulo); //adiciona titulo da tabela
 		boxConteudo.add(boxTblTitulo);
 		boxConteudo.add(Box.createVerticalStrut(20));  
 		boxConteudo.add(tabelaRolagem);
-		
+
 		boxBotao = Box.createHorizontalBox();
-		cadastrarBtn = new JButton("Cadastrar");
-		cadastrarBtn.setFont(DesignApp.fonteMedia);
 		salvarBtn = new JButton("Salvar");
 		salvarBtn.setFont(DesignApp.fonteMedia);
 		acessarBtn = new JButton("Acessar");
 		acessarBtn.setFont(DesignApp.fonteMedia);
-		encerrarBtn = new JButton("Encerrar Aulas");
-		encerrarBtn.setFont(DesignApp.fonteMedia);
 		
 		boxBotao.add(Box.createHorizontalGlue());
-		boxBotao.add(cadastrarBtn);
-		boxBotao.add(Box.createHorizontalStrut(20));
 		boxBotao.add(salvarBtn);
 		boxBotao.add(Box.createHorizontalStrut(20));
 		boxBotao.add(acessarBtn);
-		boxBotao.add(Box.createHorizontalStrut(20));
-		boxBotao.add(encerrarBtn);
 		boxBotao.add(Box.createHorizontalStrut(50));
 		
 		boxConteudo.add(Box.createHorizontalStrut(50));
 		boxConteudo.add(boxBotao);
 		
+		
 		boxGeral.add(boxTitulo);
 		boxGeral.add(boxConteudo);
-
+		
 		this.add(boxGeral);
 	}
+	
+	
+	
+	
 	
 
 }

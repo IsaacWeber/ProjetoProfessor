@@ -9,6 +9,8 @@ import javax.swing.UIManager.LookAndFeelInfo;
 public class DesignApp { //classe para fazer o design geral do app
 	
 	public final static Color corFundo = new Color(237, 237, 237);
+	
+	public final static Font fonteSecTitulo = new Font(Font.SANS_SERIF, Font.PLAIN, 30); 
 	public final static Font fonteGrande = new Font(Font.SANS_SERIF, Font.PLAIN, 25); 
 	public final static Font fonteMedia = new Font(Font.SANS_SERIF, Font.PLAIN, 18); 
 	
