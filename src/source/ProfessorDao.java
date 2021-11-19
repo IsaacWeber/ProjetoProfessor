@@ -19,8 +19,13 @@ public class ProfessorDao implements Dao<Professor> {
 	
 	//methods
 	@Override
-	public Optional<Professor> get(long id) {
-		// TODO Auto-generated method stub
+	public Professor get(long id) {
+		for(Professor prof: getAll()) {
+			if(prof.getId() == id) {
+				return prof;
+			}
+		}
+		
 		return null;
 	}
 

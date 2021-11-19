@@ -1,0 +1,2 @@
+- atualizar arquitetura do bd
+- atualizar arquitetura do programa

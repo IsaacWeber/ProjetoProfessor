@@ -11,7 +11,8 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumnModel;
 
-public class TurmaTela extends JFrame {
+public class EtapaTela extends JFrame {
+	
 	
 	private JLabel tituloLabel;
 	private Box boxGeral, 
@@ -20,16 +21,15 @@ public class TurmaTela extends JFrame {
 		boxTblTitulo,
 		boxBotao;
 	private JLabel tabelaTitulo;
-	private JTable tabelaTurma;
+	private JTable tabelaEtapa;
 	private DefaultTableModel tabelaModelo;
 	private JScrollPane tabelaRolagem;
 	private JButton salvarBtn, acessarBtn, cadastrarBtn;
-	private Professor professorAtual;
+	//private Professor professorAtual;
 	
-	public TurmaTela(Professor prof) {
-		this.professorAtual = prof;
+	public EtapaTela() {
 		this.getContentPane().setBackground(DesignApp.corFundo);
-		this.setTitle("Gerenciador Escolar - Turmas");
+		this.setTitle("Gerenciador Escolar - Etapas");
 		this.setSize(800, 600);
 		this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		this.setLocationRelativeTo(null);
@@ -51,24 +51,25 @@ public class TurmaTela extends JFrame {
 		
 		boxConteudo = Box.createVerticalBox();
 		boxTblTitulo = Box.createHorizontalBox();
-		tabelaTitulo = new JLabel("Turmas");
+		tabelaTitulo = new JLabel("Etapas");
 		tabelaTitulo.setFont(new Font(Font.SANS_SERIF, Font.PLAIN, 30));
-		tabelaModelo = new DefaultTableModel(new Object[] {"N°", "Turma", "Alunos"}, 5);
-		tabelaTurma = new JTable(tabelaModelo);
-		tabelaTurma.getTableHeader().setFont(DesignApp.fonteMedia);
-		tabelaTurma.setFont(DesignApp.fonteMedia);
-		String[] names = {"A", "B", "C", "D", "E"};
+		tabelaModelo = new DefaultTableModel(new Object[] {"N°", "Etapa", "Alunos"}, 5);
+		tabelaEtapa = new JTable(tabelaModelo);
+		tabelaEtapa.getTableHeader().setFont(DesignApp.fonteMedia);
+		tabelaEtapa.setFont(DesignApp.fonteMedia);
+		String[] names = {"Primeiro Bimestre", "Segundo Bimestre", 
+				"Terceiro Bimestre", "Quarto Bimestre", "Quinto Bimestre"};
 		
 		for(int i = 0; i < names.length; ++i) {
-			tabelaTurma.setValueAt(i, i, 0);
-			tabelaTurma.setValueAt(names[i], i, 1);
-			tabelaTurma.setValueAt(0, i, 2);
+			tabelaEtapa.setValueAt(i, i, 0);
+			tabelaEtapa.setValueAt(names[i], i, 1);
+			tabelaEtapa.setValueAt(0, i, 2);
 		}
-		tabelaTurma.setRowHeight(30); 
-		TableColumnModel tcm = tabelaTurma.getColumnModel();
+		tabelaEtapa.setRowHeight(30); 
+		TableColumnModel tcm = tabelaEtapa.getColumnModel();
 		tcm.getColumn(1).setPreferredWidth(10);
 		
-		tabelaRolagem = new JScrollPane(tabelaTurma,
+		tabelaRolagem = new JScrollPane(tabelaEtapa,
 			JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,
 			JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 		boxConteudo.add(Box.createVerticalStrut(50));
@@ -102,10 +103,6 @@ public class TurmaTela extends JFrame {
 		
 		this.add(boxGeral);
 	}
-	
-	
-	
-	
 	
 
 }

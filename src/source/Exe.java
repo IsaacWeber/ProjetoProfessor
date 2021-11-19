@@ -7,9 +7,10 @@ public class Exe {
 	public static void main(String[] args) {
 		
 		new DesignApp("Nimbus");
+//		new EtapaTela();
 //		new AlunoTela();
-//		new TurmaTela();
-//		new Materia();
+//		new TurmaTela(null);
+//		new MateriaTela(null);
 		new Entrada(); 
 //		DAO dao = new DAO();
 //		ProfessorDao pDao = new ProfessorDao();

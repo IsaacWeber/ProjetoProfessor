@@ -35,4 +35,10 @@ public class Professor {
 		this.sobreNome = sobreNome;
 	}
 	
+	
+	@Override
+	public String toString() {
+		return String.format("%d - %s %s", this.id, this.nome, this.sobreNome);
+	}
+	
 }

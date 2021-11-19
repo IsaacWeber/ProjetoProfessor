@@ -23,10 +23,13 @@ public class MateriaTela extends JFrame {
 	private JTable tabelaMateria;
 	private DefaultTableModel tabelaModelo;
 	private JScrollPane tabelaRolagem;
-	private JButton salvarBtn, acessarBtn;
+	private JButton salvarBtn, acessarBtn, cadastrarBtn;
+	private Professor professorAtual;
 	
 	
-	public MateriaTela() {
+	public MateriaTela(Professor prof) {
+		this.professorAtual = prof;
+		
 		this.getContentPane().setBackground(DesignApp.corFundo);
 		this.setTitle("Gerenciador Escolar - Matérias");
 		this.setSize(800, 600);
@@ -35,7 +38,7 @@ public class MateriaTela extends JFrame {
 		this.setExtendedState(MAXIMIZED_BOTH);
 		
 		configPaineis();
-		
+		//add
 		this.setVisible(true);
 	}
 	
@@ -54,7 +57,7 @@ public class MateriaTela extends JFrame {
 		tabelaTitulo = new JLabel("Matérias");
 		tabelaTitulo.setFont(new Font(Font.SANS_SERIF, Font.PLAIN, 30));
 		tabelaModelo = new DefaultTableModel(new Object[] {"N°", "Matéria", "Alunos"}, 5);
-		tabelaMateria = new JTable(tabelaModelo);
+		tabelaMateria = new JTable();
 		tabelaMateria.getTableHeader().setFont(DesignApp.fonteMedia);
 		tabelaMateria.setFont(DesignApp.fonteMedia);
 		String[] names = {"Matemática", "Português", "Geografia", "História", "Inglês"};
@@ -63,7 +66,7 @@ public class MateriaTela extends JFrame {
 			tabelaMateria.setValueAt(i, i, 0);
 			tabelaMateria.setValueAt(names[i], i, 1);
 			tabelaMateria.setValueAt(0, i, 2);
-		}
+//		}
 		tabelaMateria.setRowHeight(30); 
 		TableColumnModel tcm = tabelaMateria.getColumnModel();
 		tcm.getColumn(1).setPreferredWidth(10);
@@ -83,11 +86,15 @@ public class MateriaTela extends JFrame {
 		salvarBtn.setFont(DesignApp.fonteMedia);
 		acessarBtn = new JButton("Acessar");
 		acessarBtn.setFont(DesignApp.fonteMedia);
+		cadastrarBtn = new JButton("Cadastrar");
+		cadastrarBtn.setFont(DesignApp.fonteMedia);
 		
 		boxBotao.add(Box.createHorizontalGlue());
 		boxBotao.add(salvarBtn);
 		boxBotao.add(Box.createHorizontalStrut(20));
 		boxBotao.add(acessarBtn);
+		boxBotao.add(Box.createHorizontalStrut(20));
+		boxBotao.add(cadastrarBtn);
 		boxBotao.add(Box.createHorizontalStrut(50));
 		
 		boxConteudo.add(Box.createHorizontalStrut(50));
