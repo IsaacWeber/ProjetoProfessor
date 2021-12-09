@@ -7,6 +7,7 @@ public class Exe {
 	public static void main(String[] args) {
 		
 		new DesignApp("Nimbus");
+//		new Test();
 //		new EtapaTela();
 //		new AlunoTela();
 //		new TurmaTela(null);

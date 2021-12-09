@@ -31,6 +31,7 @@ public class ProfessorDao implements Dao<Professor> {
 
 	@Override
 	public List<Professor> getAll() {
+		professores.clear(); //limpa valores anteriores
 		try {
 			con = DriverManager.getConnection(BD.URL, BD.USUARIO, BD.SENHA);
 			stmt = con.prepareStatement("SELECT * FROM `professor`");

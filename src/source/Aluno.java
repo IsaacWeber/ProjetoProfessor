@@ -1,15 +1,15 @@
 package source;
 
-public class Materia {
+public class Aluno {
 	
 	private long id;
 	private String nome;
-	private long profId;
+	private String sobreNome;
 	
-	public Materia(long id, String nome, long profId) {
+	public Aluno(long id, String nome, String sobreNome) {
 		this.id = id;
 		this.nome = nome;
-		this.profId = profId;
+		this.sobreNome = sobreNome;
 	}
 	
 	public long getId() {
@@ -24,21 +24,13 @@ public class Materia {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	
-	public long getProfId() {
-		return profId;
+	public String getSobreNome() {
+		return sobreNome;
+	}
+	public void setSobreNome(String sobreNome) {
+		this.sobreNome = sobreNome;
 	}
 
-	public void setProfId(long profId) {
-		this.profId = profId;
-	}
-
-	@Override
-	public String toString() {
-		return nome;
-	}
 	
 	
-	
-
 }

@@ -37,7 +37,7 @@ public class Entrada extends JFrame {
 	private JButton professorCadastrar;
 	private JPanel painelGrafico;
 	private JLabel graficoLabel;
-	private JFrame cadFrame = null;
+	private JFrame cadFrame;
 	private ProfessorDao pDao;
 	
 	public Entrada() {
@@ -344,7 +344,7 @@ public class Entrada extends JFrame {
 										JOptionPane.QUESTION_MESSAGE, 
 										null,
 										new String[]{"Sim", "Não"}, 
-										new String[]{"Sim", "Não"}[0]);
+										"Sim");
 							
 							
 							if(resp == JOptionPane.YES_OPTION) { //se resp sim, cadastra prof
