@@ -7,12 +7,12 @@ public class Exe {
 	public static void main(String[] args) {
 		
 		new DesignApp("Nimbus");
-//		new Test();
+		new Test();
 //		new EtapaTela();
 //		new AlunoTela();
 //		new TurmaTela(null);
 //		new MateriaTela(null);
-		new Entrada(); 
+//		new Entrada(); 
 //		DAO dao = new DAO();
 //		ProfessorDao pDao = new ProfessorDao();
 //		List<Professor> profs = pDao.getAll();

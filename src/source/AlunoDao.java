@@ -1,16 +1,17 @@
 package source;
 
-import java.util.List;
-import java.util.ArrayList;
-import java.sql.DriverManager;
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 public class AlunoDao implements Dao<Aluno> {
-	private List<Aluno> alunos  = new ArrayList<>();
 	private Connection con;
 	private PreparedStatement stmt;
 	private ResultSet rs;
+	private List<Aluno> alunos  = new ArrayList<>();
 	
 	@Override
 	public Aluno get(long id) {
@@ -18,6 +19,30 @@ public class AlunoDao implements Dao<Aluno> {
 		return null;
 	}
 
+	public List<Aluno> getAllByEtapa(long profId, long matId, 
+			long turId, long etpId) {
+		try {
+			con = DriverManager.getConnection(BD.URL, BD.USUARIO, BD.SENHA);
+			stmt = con.prepareStatement(
+				"SELECT  al.idaluno, am.matricula, al.nome, al.sobrenome, ae.nota, ae.faltas FROM aluno as al"
+				+ " INNER JOIN aluno_etapa as ae ON ae.idaluno = al.idaluno AND ae.idetapa = ?"
+				+ " INNER JOIN aluno_materia as am ON am.idaluno = al.idaluno AND am.idmateria = ?"); //pega alunos da etapa ? e da materia ?
+			stmt.setLong(1, etpId);
+			stmt.setLong(2, matId);
+			rs = stmt.executeQuery();
+			
+			while(rs.next()) {
+				alunos.add(new Aluno(rs.getLong(1), rs.getLong(2), rs.getString(3), 
+					rs.getString(4), rs.getDouble(5), rs.getLong(6),
+					profId, matId, turId, etpId));
+			}
+			
+		}catch(SQLException e) {
+			System.err.println(e);
+		}
+		
+		return alunos;
+	}
 	@Override
 	public List<Aluno> getAll() {
 		// TODO Auto-generated method stub

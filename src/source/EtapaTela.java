@@ -134,6 +134,21 @@ public class EtapaTela extends JFrame {
 		
 		acessarBtn = new JButton("Acessar");
 		acessarBtn.setFont(DesignApp.fonteMedia);
+		acessarBtn.addActionListener(
+				new ActionListener() {
+					@Override
+					public void actionPerformed(ActionEvent e) {
+							int index = tabelaEtapa.getSelectedRow();
+							if(index != -1) {
+								new TelaAbas(professorAtual, materiaAtual, turmaAtual,
+									(Etapa) tabelaModelo.getValueAt(index, 1)); //cria a tela de abas
+							}else {
+								JOptionPane.showMessageDialog(null, "Não há etapas selecionadas!", 
+									"Advertência!", JOptionPane.WARNING_MESSAGE);
+							}
+					}
+			});
+	
 		cadastrarBtn = new JButton("Cadastrar");
 		cadastrarBtn.setFont(DesignApp.fonteMedia);
 		cadastrarBtn.addActionListener(

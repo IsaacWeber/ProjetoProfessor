@@ -1,51 +1,47 @@
 package source;
 
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.KeyAdapter;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.File;
+
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
-import javax.swing.JTextField;
-
-public class Test extends JFrame implements KeyListener{
-
+public class Test extends JFrame {
+	
+	private JButton addImage;
+	private JFrame myInstance;
 	public Test() {
+		super("Test jfile chooser");
+		setLayout(null);
+		myInstance = this;
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setSize(600, 400);
+		setLocationRelativeTo(null);
+
 		
-		
-		JTextField t = new JTextField();
-		t.addKeyListener(
-			new KeyAdapter() {
+		Icon btnImage = new ImageIcon(
+				getClass().getResource("../images/add-image.png"));
+		addImage = new JButton(btnImage);
+		addImage.setBounds(10, 10, 150, 180);
+		addImage.addActionListener(
+			new ActionListener() {
 				@Override
-				public void keyPressed(KeyEvent e) {
-					System.out.println("pressed");
-				}
+				public void actionPerformed(ActionEvent e) {
+					JFileChooser fileChooser = new JFileChooser();
+					fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
+					fileChooser.setCurrentDirectory(new File(System.getProperty("user.home") + "/Desktop"));
+					fileChooser.showOpenDialog(myInstance);
 					
+				}
 			});
-		add(t);
 		
-		//addKeyListener(this);
+		add(addImage);
+		
 		setVisible(true);
-	}
-
-	@Override
-	public void keyTyped(KeyEvent e) {
-		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
-	public void keyPressed(KeyEvent e) {
-		System.out.println("pressed");
-		
-	}
-
-	@Override
-	public void keyReleased(KeyEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-	
-	
-	
 }
